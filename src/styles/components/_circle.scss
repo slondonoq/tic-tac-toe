@@ -1,0 +1,7 @@
+.circle {
+    fill: var(--secondary-color-200);
+
+    &--selection {
+        fill: var(--tertiary-color-200);
+    }
+}

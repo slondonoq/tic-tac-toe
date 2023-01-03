@@ -1,0 +1,9 @@
+.cross {
+    stroke: var(--primary-color-200);
+    fill: var(--primary-color-200);
+
+    &--selection {
+        stroke: var(--tertiary-color-200);
+        fill: var(--tertiary-color-200);
+    }
+}

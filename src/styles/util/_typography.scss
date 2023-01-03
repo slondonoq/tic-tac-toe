@@ -1,0 +1,31 @@
+@use './functions' as f;
+
+$font: 'Poppins', sans-serif;
+
+h1, h2 {
+    font-weight: 700;
+    font-size: f.rem(32);
+    margin: 0;
+}
+
+h3, h4 {
+    font-weight: 500;
+    font-size: f.rem(20);
+    margin: 0;
+}
+
+p, a, button {
+    font-weight: 400;
+    font-size: f.rem(16);
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color-300);
+    transition: color .3s ease;
+
+    &:hover {
+        color: var(--primary-color-200);
+    }
+}

@@ -4,18 +4,29 @@ import Button from './utils/Button';
 import Circle from './utils/Circle';
 import Cross from './utils/Cross';
 
-const Menu = ({ setNewPlayers }) => {
+const Menu = ({ startGame }) => {
 
     const [playerOne, setPlayerOne] = useState('X');
 
     const changePlayerOneMark = (event) => {
         setPlayerOne(event.target.value);
-    };
+    }
 
-    const startGame = () => {
+    const startNewGame = (gameMode) => {
         // TODO: game start logic
-        console.log(playerOne);
-    };
+        const players = {
+            playerOne
+        };
+        const opponent = playerOne === 'X' ? 'O' : 'X';
+        if (gameMode === 'VS CPU') {
+            players.CPU = opponent;
+        }
+        else {
+            players.playerTwo = opponent;
+        }
+
+        startGame(players, gameMode);
+    }
 
     return (
         <div className="menu">
@@ -35,6 +46,7 @@ const Menu = ({ setNewPlayers }) => {
                     defaultChecked
                     />
                     <label htmlFor="mark-X" >
+                        <div className="menu__selection__slider" />
                         <Cross type={'selection'}/>
                     </label>
                     <input
@@ -51,11 +63,11 @@ const Menu = ({ setNewPlayers }) => {
                 <div className="menu__actions">
                     <Button
                     additionalClasses={'button--vsCPU'}
-                    onClick={startGame}
+                    onClick={() => startNewGame('VS CPU')}
                     text={'New game: VS CPU'}/>
                     <Button
                     additionalClasses={'button--vsPlayer'}
-                    onClick={startGame}
+                    onClick={() => startNewGame('VS Player')}
                     text={'New game: VS Player'}
                     type={'secondary'}/>
                 </div>

@@ -1,0 +1,15 @@
+@use './functions' as f;
+
+// Breakpoints at 700px, 1000px and 1440px with base font size
+$breakpoints-up: (
+    'medium': f.em(700),
+    'large': f.em(1000),
+    'x-large': f.em(1440)
+);
+
+// Mixin for media queries
+@mixin breakpoint($size) {
+    @media (min-width: map-get($breakpoints-up, $size)) {
+        @content
+    }
+}

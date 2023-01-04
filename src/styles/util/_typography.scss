@@ -1,17 +1,49 @@
 @use './functions' as f;
+@use './breakpoints' as b;
 
 $font: 'Poppins', sans-serif;
 
 h1, h2 {
     font-weight: 700;
-    font-size: f.rem(32);
     margin: 0;
+}
+
+h1 {
+    font-size: f.rem(32);
+
+    @include b.breakpoint(medium) {
+        font-size: f.rem(36);
+    }
+
+    @include b.breakpoint(large) {
+        font-size: f.rem(40);
+    }
+}
+
+h2 {
+    font-size: f.rem(24);
+
+    @include b.breakpoint(medium) {
+        font-size: f.rem(32);
+    }
+
+    @include b.breakpoint(large) {
+        font-size: f.rem(36);
+    }
 }
 
 h3, h4 {
     font-weight: 500;
     font-size: f.rem(20);
     margin: 0;
+    
+    @include b.breakpoint(medium) {
+        font-size: f.rem(24);
+    }
+    
+    @include b.breakpoint(large) {
+        font-size: f.rem(28);
+    }
 }
 
 p, a, button {

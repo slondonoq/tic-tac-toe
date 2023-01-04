@@ -1,9 +1,11 @@
-const Board = () => {
+const Board = ({ voidGame }) => {
+
     return (
         <div>
-            Here goes board
+            <p>Board goes here</p>
+            <button onClick={voidGame}>Back to menu</button>
         </div>
     )
-};
+}
 
 export default Board;

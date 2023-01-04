@@ -7,6 +7,14 @@
     align-items: center;
     width: u.em(290);
 
+    @include u.breakpoint(medium) {
+        width: u.em(430);
+    }
+
+    @include u.breakpoint(large) {
+        width: u.em(470);
+    }
+
     &__header {
         display: flex;
         gap: u.em(10);
@@ -16,6 +24,16 @@
         img {
             width: u.em(48);
             height: u.em(48);
+            
+            @include u.breakpoint(medium) {
+                width: u.em(54);
+                height: u.em(54);
+            }
+            
+            @include u.breakpoint(large) {
+                width: u.em(58);
+                height: u.em(58);
+            }
         }
 
         h1 {
@@ -24,6 +42,8 @@
     }
 
     &__selection {
+
+        width: 100%;
 
         &__mark {
             display: grid;
@@ -35,6 +55,10 @@
             padding: u.em(15) u.em(20);
             background-color: var(--card-color);
             border-radius: u.em(8);
+
+            @include u.breakpoint(medium) {
+                padding: u.em(30) u.em(60);
+            }
 
             &::after {
                 content: '';
@@ -52,51 +76,115 @@
             text-align: center;
         }
 
-        input {
-            display: none;
-        }
-
         .circle, .cross {
             width: u.em(40);
             height: u.em(40);
+            
+            @include u.breakpoint(medium) {
+                width: u.em(44);
+                height: u.em(44);
+            }
+            
+            @include u.breakpoint(large) {
+                width: u.em(48);
+                height: u.em(48);
+            }
         }
 
         label {
             display: block;
             padding: u.em(5) u.em(30);
             border-radius: u.em(8);
-            transition: background-color .3s ease;
             grid-row: 2/3;
             z-index: 2;
             margin-top: u.em(15);
             margin-bottom: u.em(15);
             cursor: pointer;
 
+            @include u.breakpoint(medium) {
+                margin-top: u.em(20);
+                margin-bottom: u.em(20);
+            }
+
+            @include u.breakpoint(large) {
+                margin-top: u.em(30);
+                margin-bottom: u.em(30);
+            }
+
             &:first-of-type {
+                position: relative;
                 grid-column: 1/2;
                 margin-left: u.em(20);
+
+                @include u.breakpoint(medium) {
+                    margin-left: u.em(30);
+                }
+
+                @include u.breakpoint(medium) {
+                    margin-left: u.em(50);
+                }
+                
+                &:hover path {
+                    fill: var(--primary-color-200);
+                    stroke: var(--primary-color-200);
+                }
             }
 
             &:last-of-type {
                 grid-column: 2/3;
                 margin-right: u.em(20);
+
+                @include u.breakpoint(medium) {
+                    margin-right: u.em(30);
+                }
+
+                @include u.breakpoint(medium) {
+                    margin-right: u.em(50);
+                }
+
+                &:hover path {
+                    fill: var(--secondary-color-200);
+                    stroke: var(--secondary-color-200);
+                }
             }
 
             path {
                 transition: all .3s ease;
             }
+        }
 
-            &:hover {
-                background-color: var(--tertiary-color-100);
+        &__slider {
+            position: absolute;
+            top: - u.em(5);
+            left: calc(100% + u.em(10));
+            width: 100%;
+            height: calc(100% + u.em(10));
+            border-radius: u.em(8);
+            border: u.em(2) solid var(--secondary-color-100);
+            z-index: -1;
+            transition: all .3s ease;
+
+            @include u.breakpoint(large) {
+                left: calc(100% + u.em(22));
             }
         }
 
-        input:checked + label{
-            background-color: var(--tertiary-color-200);
-            
-            path {
-                stroke: var(--card-color);
-                fill: var(--card-color);
+        input {
+            display: none;
+
+            &:first-of-type:checked + label div  {
+                left: 0;
+                border: u.em(2) solid var(--primary-color-100);
+            }
+
+            &:first-of-type:checked + label path {
+                fill: var(--primary-color-100);
+                stroke: var(--primary-color-100);
+            }
+
+            &:last-of-type:checked + label path {
+                fill: var(--secondary-color-100);
+                stroke: var(--secondary-color-100);
             }
         }
 
@@ -108,7 +196,15 @@
 
         p {
             grid-column: 1/3;
-            color: var(--text-secondary-color)
+            color: var(--text-secondary-color);
+
+            @include u.breakpoint(medium) {
+                font-size: u.em(18);
+            }
+
+            @include u.breakpoint(large) {
+                font-size: u.em(20);
+            }
         }
     }
 

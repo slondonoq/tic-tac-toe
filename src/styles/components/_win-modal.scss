@@ -21,11 +21,17 @@
         gap: u.em(20);
         justify-content: center;
         align-items: center;
+
+        @include u.breakpoint(medium) {
+            padding: u.em(60) u.em(60);
+            gap: u.em(30);
+        }
     }
 
     & h2 {
         display: flex;
         gap: u.em(5);
+        align-items: center;
 
         &.win-cross {
             color: var(--primary-color-200);
@@ -41,10 +47,28 @@
         font-size: 1rem;
         width: u.em(34);
         height: u.em(34);
+
+        @include u.breakpoint(medium) {
+            width: u.em(38);
+            height: u.em(38);
+        }
+
+        @include u.breakpoint(large) {
+            width: u.em(42);
+            height: u.em(42);
+        }
     }
 
     &__actions {
         display: flex;
         gap: u.em(30);
+
+        @include u.breakpoint(medium) {
+            gap: u.em(50);
+        }
+
+        @include u.breakpoint(large) {
+            gap: u.em(80);
+        }
     }
 }

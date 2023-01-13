@@ -10,7 +10,7 @@ const Button = ({
 
 }) => (
     <button
-    className={type ? `button button--${type} ${additionalClasses || ''}` : 'button'}
+    className={type ? `button button--${type} ${icon ? 'button--icon' : ''} ${additionalClasses || ''}` : 'button' }
     onClick={onClick}
     aria-label={aria_label}>
         {

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import logo from '../assets/img/logo.svg';
+import Footer from './Footer';
 import Button from './utils/Button';
 import Circle from './utils/Circle';
 import Cross from './utils/Cross';
@@ -72,11 +73,7 @@ const Menu = ({ startGame }) => {
                     type={'secondary'}/>
                 </div>
             </main>
-            <footer className="menu__footer">
-                <p>
-                    Created by <a href="https://github.com/slondonoq" className="menu__links">slondonoq</a>, inspired by <a href="https://www.frontendmentor.io/challenges/tic-tac-toe-game-Re7ZF_E2v" className="menu__links">Frontend Mentor challenge</a>.
-                </p>
-            </footer>
+            <Footer />
         </div>
     )
 };

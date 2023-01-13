@@ -1,0 +1,50 @@
+@use '../util' as u;
+
+.win-modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color: rgba(48, 44, 60, .6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & div {
+        width: 100%;
+        padding: u.em(40) u.em(40);
+        background-color: var(--card-color);
+        display: flex;
+        flex-direction: column;
+        gap: u.em(20);
+        justify-content: center;
+        align-items: center;
+    }
+
+    & h2 {
+        display: flex;
+        gap: u.em(5);
+
+        &.win-cross {
+            color: var(--primary-color-200);
+        }
+
+        &.win-circle {
+            color: var(--secondary-color-200);
+        }
+    }
+    
+    & .cross,
+    & .circle {
+        font-size: 1rem;
+        width: u.em(34);
+        height: u.em(34);
+    }
+
+    &__actions {
+        display: flex;
+        gap: u.em(30);
+    }
+}

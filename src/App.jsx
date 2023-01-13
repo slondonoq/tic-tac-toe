@@ -27,7 +27,12 @@ function App() {
         ['-', '-', '-'],
         ['-', '-', '-']
 
-      ]
+      ],
+      score: {
+        'X': 0,
+        'O': 0,
+        draws: 0
+      }
     }
     setPlayers(newPlayers);
     setOngoingMatch(true);
@@ -45,7 +50,7 @@ function App() {
     <div className="App">
       {
         ongoingMatch
-        ? <Board players={ players } voidGame={ voidGame }/>
+        ? <Board voidGame={ voidGame }/>
         : <Menu startGame={ startGame }/>
       }
     </div>

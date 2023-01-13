@@ -32,7 +32,8 @@ function App() {
         'X': 0,
         'O': 0,
         draws: 0
-      }
+      },
+      gameOngoing: true
     }
     setPlayers(newPlayers);
     setOngoingMatch(true);

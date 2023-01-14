@@ -5,9 +5,9 @@ import Button from './utils/Button';
 const WinModal = ({ winner, winnerMark, voidGame, Continue }) => (
     <div className="win-modal">
         <div>
-            <h3>{winner} won!</h3>
-            <h2 className={winnerMark === 'X' ? 'win-cross' : 'win-circle'}>
-                {winnerMark === 'X' ? <Cross /> : <Circle />} Takes the win
+            <h3>{winner ? `${winner} won!` : 'You tied!'}</h3>
+            <h2 className={winner ? winnerMark === 'X' ? 'win-cross' : 'win-circle' : 'draw'}>
+                {winner ? winnerMark === 'X' ? <Cross /> : <Circle /> : ''} { winner ? 'Takes the win': "It's a draw"}
             </h2>
             <span className="win-modal__actions">
                 <Button 

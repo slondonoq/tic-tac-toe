@@ -33,7 +33,8 @@ function App() {
         'O': 0,
         draws: 0
       },
-      gameOngoing: true
+      gameOngoing: true,
+      currentTurn: 'X'
     }
     setPlayers(newPlayers);
     setOngoingMatch(true);

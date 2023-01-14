@@ -14,7 +14,6 @@ const Menu = ({ startGame }) => {
     }
 
     const startNewGame = (gameMode) => {
-        // TODO: game start logic
         const players = {
             playerOne
         };

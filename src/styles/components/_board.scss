@@ -1,5 +1,4 @@
 @use '../util' as u;
-// TODO: add responsiveness
 .board {
     display: flex;
     flex-direction: column;
@@ -95,6 +94,21 @@
             }
         }
 
+        &.top-right::after {
+            transform: rotate(-225deg);
+            transform-origin: top left;
+            left: u.em(292);
+            width: 138%;
+            top: u.em(8);
+            background-color: var(--primary-color-200);
+
+            @include u.breakpoint(medium) {
+                top: u.em(12);
+                left: u.em(432);
+            }
+        }
+        
+
         &.game-end {
             pointer-events: none;
             cursor: none;
@@ -179,14 +193,7 @@
             }
 
             &.top-right::after {
-                transform: rotate(-45deg);
-                transform-origin: top right;
-                width: 136%;
-                left: - u.em(115);
-
-                @include u.breakpoint(medium) {
-                    left: - u.em(170);
-                }
+                width: 138%;
             }
         }
 

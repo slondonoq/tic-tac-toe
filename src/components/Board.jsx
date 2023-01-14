@@ -68,18 +68,18 @@ const Board = ({ voidGame }) => {
                     if(chosenMove.score === 1 || emptyCells(chosenMove.board) === 0) {
                         const crossWin = 1;
                         const {score, stroke} = boards[generateKey(chosenMove.board)];
-                        newGameInfo.score[chosenMove.score === 1 ? turn : 'draws'] += 1;
+                        newGameInfo.score[chosenMove.score === 1 ? turn : 'draws'] += chosenMove.score;
                         newGameInfo.gameOngoing = false;
 
                         if(chosenMove.score === 1){board.classList.add(stroke)};
                         board.classList.add(score === crossWin ? 'cross-winner' : 'circle-winner')
                         setWinner(chosenMove.score === 1 ? getScorePlayer(turn): null);
-                        setGameInfo(newGameInfo);
                         // Time modal to give animation time to do it's thing
                         setTimeout(() => {
                             setIsGameOver(true);
                             localStorage.setItem('game', JSON.stringify(newGameInfo));
-                        }, 1000);
+                            setGameInfo(newGameInfo);
+                        }, chosenMove.score === 1 ? 1000: 100);
                     }
                     else {
                         setTurn(gameInfo.players.CPU === 'X' ? 'O': 'X');
